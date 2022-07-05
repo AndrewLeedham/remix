@@ -13,45 +13,45 @@ describe("defineRoutes", () => {
 
     expect(routes).toMatchInlineSnapshot(`
       Object {
-        "routes/home": Object {
+        "/|routes/home": Object {
           "caseSensitive": undefined,
           "file": "routes/home.js",
-          "id": "routes/home",
+          "id": "/|routes/home",
           "index": undefined,
           "parentId": undefined,
           "path": "/",
         },
-        "routes/inbox": Object {
+        "/|routes/inbox/index": Object {
+          "caseSensitive": undefined,
+          "file": "routes/inbox/index.js",
+          "id": "/|routes/inbox/index",
+          "index": true,
+          "parentId": "inbox|routes/inbox",
+          "path": "/",
+        },
+        ":messageId|routes/inbox/$messageId": Object {
+          "caseSensitive": undefined,
+          "file": "routes/inbox/$messageId.js",
+          "id": ":messageId|routes/inbox/$messageId",
+          "index": undefined,
+          "parentId": "inbox|routes/inbox",
+          "path": ":messageId",
+        },
+        "archive|routes/inbox/archive": Object {
+          "caseSensitive": undefined,
+          "file": "routes/inbox/archive.js",
+          "id": "archive|routes/inbox/archive",
+          "index": undefined,
+          "parentId": "inbox|routes/inbox",
+          "path": "archive",
+        },
+        "inbox|routes/inbox": Object {
           "caseSensitive": undefined,
           "file": "routes/inbox.js",
-          "id": "routes/inbox",
+          "id": "inbox|routes/inbox",
           "index": undefined,
           "parentId": undefined,
           "path": "inbox",
-        },
-        "routes/inbox/$messageId": Object {
-          "caseSensitive": undefined,
-          "file": "routes/inbox/$messageId.js",
-          "id": "routes/inbox/$messageId",
-          "index": undefined,
-          "parentId": "routes/inbox",
-          "path": ":messageId",
-        },
-        "routes/inbox/archive": Object {
-          "caseSensitive": undefined,
-          "file": "routes/inbox/archive.js",
-          "id": "routes/inbox/archive",
-          "index": undefined,
-          "parentId": "routes/inbox",
-          "path": "archive",
-        },
-        "routes/inbox/index": Object {
-          "caseSensitive": undefined,
-          "file": "routes/inbox/index.js",
-          "id": "routes/inbox/index",
-          "index": true,
-          "parentId": "routes/inbox",
-          "path": "/",
         },
       }
     `);
@@ -68,18 +68,18 @@ describe("defineRoutes", () => {
 
     expect(routes).toMatchInlineSnapshot(`
       Object {
-        "one": Object {
+        "one|one": Object {
           "caseSensitive": undefined,
           "file": "one.md",
-          "id": "one",
+          "id": "one|one",
           "index": undefined,
           "parentId": undefined,
           "path": "one",
         },
-        "two": Object {
+        "two|two": Object {
           "caseSensitive": undefined,
           "file": "two.md",
-          "id": "two",
+          "id": "two|two",
           "index": undefined,
           "parentId": undefined,
           "path": "two",

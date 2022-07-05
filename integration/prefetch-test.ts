@@ -122,16 +122,16 @@ test.describe("prefetch=render", () => {
     await app.goto("/");
     // Both data and asset fetch for /with-loader
     await page.waitForSelector(
-      "#nav link[rel='prefetch'][as='fetch'][href='/with-loader?_data=routes%2Fwith-loader']",
+      "#nav link[rel='prefetch'][as='fetch'][href='/with-loader?_data=with-loader%7Croutes%2Fwith-loader']",
       { state: "attached" }
     );
     await page.waitForSelector(
-      "#nav link[rel='modulepreload'][href^='/build/routes/with-loader-']",
+      "#nav link[rel='modulepreload'][href^='/build/with-loader|routes/with-loader-']",
       { state: "attached" }
     );
     // Only asset fetch for /without-loader
     await page.waitForSelector(
-      "#nav link[rel='modulepreload'][href^='/build/routes/without-loader-']",
+      "#nav link[rel='modulepreload'][href^='/build/without-loader|routes/without-loader-']",
       { state: "attached" }
     );
 
@@ -170,19 +170,19 @@ test.describe("prefetch=intent (hover)", () => {
     await app.goto("/");
     await page.hover("a[href='/with-loader']");
     await page.waitForSelector(
-      "#nav link[rel='prefetch'][as='fetch'][href='/with-loader?_data=routes%2Fwith-loader']",
+      "#nav link[rel='prefetch'][as='fetch'][href='/with-loader?_data=with-loader%7Croutes%2Fwith-loader']",
       { state: "attached" }
     );
     // Check href prefix due to hashed filenames
     await page.waitForSelector(
-      "#nav link[rel='modulepreload'][href^='/build/routes/with-loader-']",
+      "#nav link[rel='modulepreload'][href^='/build/with-loader|routes/with-loader-']",
       { state: "attached" }
     );
     expect(await page.locator("#nav link").count()).toBe(2);
 
     await page.hover("a[href='/without-loader']");
     await page.waitForSelector(
-      "#nav link[rel='modulepreload'][href^='/build/routes/without-loader-']",
+      "#nav link[rel='modulepreload'][href^='/build/without-loader|routes/without-loader-']",
       { state: "attached" }
     );
     expect(await page.locator("#nav link").count()).toBe(1);
@@ -244,19 +244,19 @@ test.describe("prefetch=intent (focus)", () => {
     await page.click("body");
     await page.focus("a[href='/with-loader']");
     await page.waitForSelector(
-      "#nav link[rel='prefetch'][as='fetch'][href='/with-loader?_data=routes%2Fwith-loader']",
+      "#nav link[rel='prefetch'][as='fetch'][href='/with-loader?_data=with-loader%7Croutes%2Fwith-loader']",
       { state: "attached" }
     );
     // Check href prefix due to hashed filenames
     await page.waitForSelector(
-      "#nav link[rel='modulepreload'][href^='/build/routes/with-loader-']",
+      "#nav link[rel='modulepreload'][href^='/build/with-loader|routes/with-loader-']",
       { state: "attached" }
     );
     expect(await page.locator("#nav link").count()).toBe(2);
 
     await page.focus("a[href='/without-loader']");
     await page.waitForSelector(
-      "#nav link[rel='modulepreload'][href^='/build/routes/without-loader-']",
+      "#nav link[rel='modulepreload'][href^='/build/without-loader|routes/without-loader-']",
       { state: "attached" }
     );
     expect(await page.locator("#nav link").count()).toBe(1);

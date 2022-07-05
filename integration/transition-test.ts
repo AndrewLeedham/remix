@@ -208,7 +208,7 @@ test.describe("rendering", () => {
 
     expect(
       responses.map((res) => new URL(res.url()).searchParams.get("_data"))
-    ).toEqual([`routes/${PAGE}`, `routes/${PAGE}/index`]);
+    ).toEqual([`${PAGE}|routes/${PAGE}`, `routes/${PAGE}/index`]);
 
     let html = await app.getHtml("main");
     expect(html).toMatch(PAGE_TEXT);
@@ -223,7 +223,7 @@ test.describe("rendering", () => {
 
     expect(
       responses.map((res) => new URL(res.url()).searchParams.get("_data"))
-    ).toEqual([`routes/${PAGE}/${CHILD}`]);
+    ).toEqual([`${CHILD}|routes/${PAGE}/${CHILD}`]);
 
     let html = await app.getHtml("main");
     expect(html).toMatch(PAGE_TEXT);
@@ -240,7 +240,7 @@ test.describe("rendering", () => {
 
     expect(
       responses.map((res) => new URL(res.url()).searchParams.get("_data"))
-    ).toEqual([`routes/${REDIRECT}`, `routes/${PAGE}`, `routes/${PAGE}/index`]);
+    ).toEqual([`${REDIRECT}|routes/${REDIRECT}`, `${PAGE}|routes/${PAGE}`, `routes/${PAGE}/index`]);
 
     let html = await app.getHtml("main");
     expect(html).toMatch(PAGE_TEXT);

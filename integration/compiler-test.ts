@@ -193,7 +193,7 @@ test.describe("compiler", () => {
     );
 
     let routeModule = await fixture.getBrowserAsset(
-      fixture.build.assets.routes["routes/built-ins"].module
+      fixture.build.assets.routes["built-ins|routes/built-ins"].module
     );
     // does not include `import bla from "path"` in the output bundle
     expect(routeModule).not.toMatch(/from\s*"path/);
@@ -212,7 +212,7 @@ test.describe("compiler", () => {
     );
 
     let routeModule = await fixture.getBrowserAsset(
-      fixture.build.assets.routes["routes/built-ins-polyfill"].module
+      fixture.build.assets.routes["built-ins-polyfill|routes/built-ins-polyfill"].module
     );
     // does not include `import bla from "path"` in the output bundle
     expect(routeModule).not.toMatch(/from\s*"path/);

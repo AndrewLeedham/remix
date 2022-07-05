@@ -141,7 +141,7 @@ export function defineRoutes(
       path: path ? path : undefined,
       index: options.index ? true : undefined,
       caseSensitive: options.caseSensitive ? true : undefined,
-      id: createRouteId(file),
+      id: createRouteId(path ? (path + '|' + file) : file),
       parentId:
         parentRoutes.length > 0
           ? parentRoutes[parentRoutes.length - 1].id

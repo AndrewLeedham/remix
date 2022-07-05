@@ -101,7 +101,7 @@ test.beforeAll(async () => {
         }
         export function CatchBoundary() {
           let matches = useMatches();
-          let { data } = matches.find(match => match.id === "routes${HAS_BOUNDARY_LAYOUT_NESTED_LOADER}");
+          let { data } = matches.find(match => match.id === "${HAS_BOUNDARY_LAYOUT_NESTED_LOADER.replace(/^\//, '')}|routes${HAS_BOUNDARY_LAYOUT_NESTED_LOADER}");
 
           return (
             <div>
